@@ -1,0 +1,55 @@
+.wp-block-sportsdata-now-and-next {
+    .sd-event-date,
+    .sd-event-results,
+    .sd-event-time,
+    .sd-event-title {
+        clear: none;
+        display: block;
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+    }
+    .sd-event-results,
+    .sd-event-title {
+        font-size: 18px;
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+    .sd-event-date {
+        font-size: 14px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+    .sd-event-time {
+        font-size: 14px;
+        margin-bottom: 10px;
+        margin-top: 0;
+    }
+    .sd-team-logo {
+        height: 4em;
+        margin: 10px;
+        max-width: 6em;
+        text-align: center;
+        width: 20%;
+    }
+    .sd-team-logo img {
+        height: auto;
+        max-height: 100%;
+        max-width: 100%;
+        width: auto;
+    }
+    .sd-logo-home {
+        float: left;
+        text-align: right;
+    }
+    .sd-logo-home img {
+        margin-right: 10px;
+    }
+    .sd-logo-away {
+        float: right;
+        text-align: left;
+    }
+    .sd-logo-away img {
+        margin-left: 10px;
+    }
+}

@@ -1,0 +1,43 @@
+{
+	"name": "gutenberg-examples",
+	"version": "1.1.0",
+	"private": true,
+	"description": "Gutenberg Examples",
+	"author": "The WordPress Contributors",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"editor",
+		"Examples"
+	],
+	"homepage": "https://github.com/WordPress/gutenberg-examples/",
+	"repository": "git+https://github.com/WordPress/gutenberg-examples.git",
+	"bugs": {
+		"url": "https://github.com/WordPress/gutenberg-examples/issues"
+	},
+	"devDependencies": {
+		"@wordpress/env": "^4.6.0",
+		"@wordpress/scripts": "^23.0.0",
+		"copy-webpack-plugin": "^10.2.4",
+		"eslint-plugin-prettier": "^4.0.0",
+		"prettier": "npm:wp-prettier@2.2.1-beta-1"
+	},
+	"prettier": "@wordpress/prettier-config",
+	"scripts": {
+		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=src --output-path=build",
+		"build": "wp-scripts build --webpack-copy-php --webpack-src-dir=src --output-path=build",
+		"lint:js": "wp-scripts lint-js",
+		"lint:style": "wp-scripts lint-style",
+		"format:js": "wp-scripts format",
+		"lint:js:fix": "npm run lint:js -- --fix",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"test": "wp-scripts test-unit-js",
+		"env:start": "wp-env start",
+		"env:start:debug": "wp-env start --xdebug",
+		"env:stop": "wp-env stop",
+		"packages-update": "wp-scripts packages-update"
+	},
+	"dependencies": {
+		"@wordpress/api-fetch": "^6.7.0"
+	}
+}

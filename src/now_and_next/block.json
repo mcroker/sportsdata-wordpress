@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "sportsdata/now-and-next",
+  "version": "0.1.0",
+  "title": "SportsData: Now and Next Fixtures",
+  "category": "sportsdata",
+  "icon": "universal-access-alt",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Fixtures"
+    },
+    "teamkey": {
+      "type": "string"
+    },
+    "maxrows": {
+      "type": "integer",
+      "default": 6
+    },
+    "maxfuture": {
+      "type": "integer",
+      "default": 3
+    }
+  },
+  "example": {
+    "attributes": {
+      "message": "Fixtures",
+      "teamkey": "my-team",
+      "maxows": 6,
+      "maxfuture": 3
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "sportsdata",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
