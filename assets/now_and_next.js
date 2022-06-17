@@ -1,45 +1,37 @@
-function addTableRow(tbodyId, fixture) {
-    var homeLogoHtml =
-        (fixture.homeLogoUrl) ? '<img src="' + fixture.homeLogoUrl + '">' : '';
-    var awayLogoHtml =
-        (fixture.awayLogoUrl) ? '<img src="' + fixture.awayLogoUrl + '">' : '';
-    var rowHtml =
-        '<tr class="sd-event-row">'
-        + '  <td>'
-        + '    <div class="sd-team-logo sd-logo-home">' + homeLogoHtml + '</div>'
-        + '    <div class="sd-team-logo sd-logo-away">' + awayLogoHtml + '</div>'
-        + '    <time class="sd-event-date">' + fixture.eventDate + '</time>'
-        + '    <time class="sd-event-time">' + fixture.eventTime + '</time>'
-        + '    <h5 class="sd-event-results">' + fixture.homeScore + ' - ' + fixture.awayScore + '</h5>'
-        + '    <h4 class="sd-event-title">' + fixture.homeTeam + ' Vs. ' + fixture.awayTeam + '</h4>'
-        + '  </td>'
-        + '</tr>';
-    jQuery('#' + tbodyId).append(rowHtml);
-}
-
-function deleteTableRows(tbodyId) {
-    jQuery('#' + tbodyId + ' tr').remove();
-}
-
-jQuery('document').ready(function () {
-    deleteTableRows(sdparams.uid);
-    for (fixture of sdparams.fixtures) {
-        addTableRow(sdparams.uid, fixture);
-    }
+function refreshTable(params) {
+    console.info('SportsData Now & Next: Updating fixtures using API');
     jQuery.ajax({
         type: "post",
-        dataType: "json",
+        dataType: "html",
         data: {
-            maxfixtures: sdparams.maxrows,
-            maxfuture: sdparams.maxfuture
+            maxfixtures: params.maxfixtures,
+            maxfuture: params.maxfuture
         },
-        url: "http://localhost:8000/wp-json/sportsdata/v1/team/twrfc-1",
+        url: params.url + '/team/' + params.teamkey + '/now_and_next',
         success: function (data) {
-            console.log(data);
-            deleteTableRows(sdparams.uid);
-            for (fixture of data) {
-                addTableRow(sdparams.uid, fixture);
+            if (data !== undefined) {
+                jQuery('#tbody_' + params.uid)
+                    .fadeOut(500, function () {
+                        jQuery(this).html(data).fadeIn(500);
+                    });
+                console.info('SportsData Now & Next: Fixtures updated from API');
+            }
+        },
+        error: function (err, msg, thrown) {
+            console.error('SportsData Now & Next: API returned error:', err, msg, thrown);
+        },
+        complete: function (resp) {
+            if (resp.status === 304) {
+                console.info('SportsData Now & Next: API returned 304 - Content Not Modified');
             }
         }
     });
+}
+
+jQuery('document').ready(function () {
+    if (sdparams.isStale !== false) {
+        refreshTable(sdparams);
+    } else {
+        console.info('SportsData Now & Next: No API update required');
+    }
 });

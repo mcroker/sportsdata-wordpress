@@ -4,6 +4,8 @@ require_once('SDFixture.php');
 if (!class_exists('SDTeam')) :
     class SDTeam
     {
+        public $isStale = null;
+        public $isUpdated = null;
         public $fixtures = [];
 
         function __construct($data)
@@ -15,11 +17,15 @@ if (!class_exists('SDTeam')) :
             } else {
                 throw new Exception('Invalid fixtures property in API result');
             }
-
+            $this->isStale = isset($data->isStale) ? $data->isStale : null;
+            $this->isUpdated = isset($data->isUpdated) ? $data->isUpdated : null;
         }
 
-        function fixtures_now_and_next($maxrows = 6, $maxfuture = 3, $oldestfirst = false)
+        function fixtures_now_and_next($maxrows = null, $maxfuture = null, $oldestfirst = false)
         {
+            $maxrows = (isset($maxrows)) ? $maxrows : 6;
+            $maxfuture = (isset($maxfuture)) ? $maxfuture : 3;
+
             $rowsdisplayed = 0;
             $nowtimestamp = time();
             $displayfixtures = [];

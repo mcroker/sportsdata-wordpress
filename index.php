@@ -28,9 +28,7 @@ add_filter('block_categories_all', function ($categories) {
 	return $categories;
 });
 
-wp_enqueue_script('custom-js', get_template_directory_uri() . '/assets/js/custom.min.js', array('jquery'), '', true);
+wp_enqueue_script("jquery");
 
-require_once plugin_dir_path(__FILE__) . 'build/api.php';
-require_once plugin_dir_path(__FILE__) . 'build/settings.php';
 require_once plugin_dir_path(__FILE__) . 'build/common/index.php';
 require_once plugin_dir_path(__FILE__) . 'build/now_and_next/index.php';
