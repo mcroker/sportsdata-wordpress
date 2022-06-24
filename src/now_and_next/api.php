@@ -20,13 +20,6 @@ if (!function_exists('sd_api_now_and_next_post')) :
             } else {
                 wp_send_json_error(null, 304); // Not Modified
             }
-        } elseif (sd_api_accepts($headers, 'application/json')) {
-            if (isset($team)) {
-                $team->fixtures = $team->fixtures_now_and_next($maxfixtures, $maxfuture);
-                wp_send_json($team);
-            } else {
-                wp_send_json_error(null, 404); // Not Found
-            }
         } else {
             wp_send_json_error(null, 415); // Unsupported Media
         }

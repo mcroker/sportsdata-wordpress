@@ -32,3 +32,4 @@ wp_enqueue_script("jquery");
 
 require_once plugin_dir_path(__FILE__) . 'build/common/index.php';
 require_once plugin_dir_path(__FILE__) . 'build/now_and_next/index.php';
+require_once plugin_dir_path(__FILE__) . 'build/league_table/index.php';

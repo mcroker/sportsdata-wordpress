@@ -1,6 +1,4 @@
-var sdparam;
-
-function refreshTable(params) {
+function sdRefreshNowAndNext(params) {
     console.info('SportsData Now & Next: Updating fixtures using API');
     jQuery.ajax({
         type: "post",
@@ -33,12 +31,12 @@ function refreshTable(params) {
 jQuery('document').ready(function () {
     let isNowAndNext = false;
     try {
-        isNowAndNext = undefined !== sdparams;
+        isNowAndNext = undefined !== nowAndNextParams;
     } catch {
         // Throw this away - clearly not our page
     }
-    if (isNowAndNext && sdparams.isStale !== false) {
-        refreshTable(sdparams);
+    if (isNowAndNext && nowAndNextParams.isStale !== false) {
+        sdRefreshNowAndNext(nowAndNextParams);
     } else {
         console.info('SportsData Now & Next: No API update required');
     }

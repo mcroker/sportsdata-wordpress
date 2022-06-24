@@ -52,10 +52,3 @@ function sd_plugin_setting_api_url() {
     $options = get_option( 'sd_plugin_options' );
     echo "<input id='sd_plugin_setting_api_url' name='sd_plugin_options[api_url]' size=80 type='text' value='" . esc_attr( $options['api_url'] ?? '' ) . "' />";
 }
-
-function sd_enqueue_custom_admin_style() {
-    wp_register_style( 'sd_custom_wp_admin_css', plugin_dir_url( __FILE__ ) . 'assets/css/admin.css', false, '1.0.0' );
-    wp_enqueue_style( 'sd_custom_wp_admin_css' );
-}
-
-add_action( 'admin_enqueue_scripts', 'sd_enqueue_custom_admin_style' ); 

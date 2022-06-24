@@ -1,34 +1,19 @@
 {
   "$schema": "https://schemas.wp.org/trunk/block.json",
   "apiVersion": 2,
-  "name": "sportsdata/now-and-next",
+  "name": "sportsdata/league-table",
   "version": "0.1.0",
-  "title": "SportsData: Now and Next Fixtures",
+  "title": "SportsData: League Table",
   "category": "sportsdata",
   "icon": "universal-access-alt",
   "attributes": {
-    "title": {
-      "type": "string",
-      "default": "Fixtures"
-    },
     "teamkey": {
       "type": "string"
-    },
-    "maxrows": {
-      "type": "integer",
-      "default": 6
-    },
-    "maxfuture": {
-      "type": "integer",
-      "default": 3
     }
   },
   "example": {
     "attributes": {
-      "title": "Fixtures",
-      "teamkey": "my-team",
-      "maxows": 6,
-      "maxfuture": 3
+      "teamkey": "my-team"
     }
   },
   "supports": {

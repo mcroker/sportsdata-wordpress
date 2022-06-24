@@ -1,5 +1,6 @@
 <?php
 require_once('SDFixture.php');
+require_once('SDCompetition.php');
 
 if (!class_exists('SDTeam')) :
     class SDTeam
@@ -7,6 +8,7 @@ if (!class_exists('SDTeam')) :
         public $isStale = null;
         public $isUpdated = null;
         public $fixtures = [];
+        public $competitions = [];
 
         function __construct($data)
         {
@@ -19,6 +21,13 @@ if (!class_exists('SDTeam')) :
             }
             $this->isStale = isset($data->isStale) ? $data->isStale : null;
             $this->isUpdated = isset($data->isUpdated) ? $data->isUpdated : null;
+            if (isset($data->competitions) && is_array(($data->competitions))) {
+                foreach ($data->competitions as $competition) {
+                    $this->competitions[] = new SDCompetition($competition);
+                }
+            } else {
+                throw new Exception('Invalid competitions property in API result');
+            }
         }
 
         function fixtures_now_and_next($maxrows = null, $maxfuture = null, $oldestfirst = false)

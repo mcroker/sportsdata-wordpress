@@ -16,23 +16,25 @@ if (!function_exists('sd_now_and_next_render_callback')) :
 		ob_start();
 		$uid = uniqid();
 		if (isset($attributes['teamkey'])) {
-			$team = sd_get_team($attributes['teamkey'], array('cachemode' => CacheMode::cacheonly));
+			$team = sd_get_team($attributes['teamkey'], array(
+				'cachemode' => get_query_var('force_refresh') === 'true' ? CacheMode::serveronly : CacheMode::cacheonly
+			));
 		} else {
 			$team = null;
 		}
 ?>
 		<div <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
 			<script type="text/javascript">
-				var sdparams;
+				var nowAndNextParams;
 				(function($) {
 					"use strict";
-					sdparams = {
+					nowAndNextParams = {
 						uid: "<?php echo $uid ?>",
 						url: "<?php echo get_site_url(null, '/wp-json/sportsdata/v1') ?>",
 						teamkey: "<?php echo $attributes['teamkey'] ?>",
 						maxfixtures: "<?php echo $attributes['maxrows'] ?>",
 						maxfuture: "<?php echo $attributes['maxfuture'] ?>",
-						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
+						isStale: <?php echo (($team === null || $team->isStale === true) && get_query_var('force_refresh') !== 'true') ? "true" : "false" ?>
 					};
 				})(jQuery);
 			</script>
