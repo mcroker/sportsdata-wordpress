@@ -86,7 +86,7 @@ if (!function_exists('sd_now_and_next_render_fixture')) :
 					<? if (isset($fixture->homeLogoUrl)) { ?>
 						<img src="<?php
 									echo esc_attr(
-										sd_get_cached_team_logo(
+										sd_refresh_cached_team_logo(
 											$fixture->homeTeam,
 											$fixture->homeLogoUrl
 										)
@@ -96,7 +96,7 @@ if (!function_exists('sd_now_and_next_render_fixture')) :
 				<div class="sd-team-logo sd-logo-away">
 					<? if (isset($fixture->awayLogoUrl)) { ?>
 						<img src="<?php echo esc_attr(
-										sd_get_cached_team_logo(
+										sd_refresh_cached_team_logo(
 											$fixture->awayTeam,
 											$fixture->awayLogoUrl
 										)

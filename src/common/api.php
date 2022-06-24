@@ -1,16 +1,16 @@
 <?php
-require_once plugin_dir_path(__FILE__) . '../common/index.php';
+require_once 'cache.php';
+require_once 'data-proxy.php';
 
 if (!function_exists('sd_api_team_logo_get')) :
     function sd_api_team_logo_get($request_data)
     {
         $parameters = $request_data->get_params();
-        $basename = strtolower(str_replace([' & ', ' '], ['_and_', '_'], $parameters['team']));
-        $key = 'sd_team_logo_' . $basename;
-        $cache = get_transient($key);
-        if ($cache !== false) {
+        $key = 'team_logo_' . $parameters['team'];
+        $cache = sd_get_cache_data($key);
+        if (isset($cache)) {
             header('Content-Type: image/png');
-            echo base64_decode($cache);
+            echo base64_decode($cache['data']);
             exit;
         }
         wp_send_json(null, 404);

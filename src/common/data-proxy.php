@@ -80,18 +80,18 @@ if (!function_exists('sd_get_server_team_data')) :
     }
 endif;
 
-if (!function_exists('sd_get_cached_team_logo')) :
-    function sd_get_cached_team_logo($team, $url): string
+if (!function_exists('sd_refresh_cached_team_logo')) :
+    function sd_refresh_cached_team_logo($team, $url): string
     {
         $basename = strtolower(str_replace([' & ', ' '], ['_and_', '_'], $team));
-        $key = 'sd_team_logo_' . $basename;
-        $logourl = get_transient($key);
-        if ($logourl === false) {
+        $key = 'team_logo_' . $basename;
+        $cache = sd_get_cache_data($key);
+        if (!isset($cache) || $cache['is_stale']) {
             $image_resource = imagecreatefrompng($url);
             $temp = tempnam(sys_get_temp_dir(), 'image_cache_');
             imagepng($image_resource, $temp);
             $image_data = file_get_contents($temp);
-            set_transient($key, base64_encode($image_data), 3600);
+            sd_set_cache_data($key, base64_encode($image_data), (new DateTime())->modify(("+1 day")));
             return site_url() . '/wp-json/sportsdata/v1/logo/' . $basename . '.png';
         } else {
             return site_url() . '/wp-json/sportsdata/v1/logo/' . $basename . '.png';
