@@ -32,7 +32,7 @@ if (!function_exists('sd_now_and_next_render_callback')) :
 						teamkey: "<?php echo $attributes['teamkey'] ?>",
 						maxfixtures: "<?php echo $attributes['maxrows'] ?>",
 						maxfuture: "<?php echo $attributes['maxfuture'] ?>",
-						isStale: <?php echo ($team === null || $team->isStale === true) ? "true" : "false" ?>
+						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
 					};
 				})(jQuery);
 			</script>
@@ -84,12 +84,23 @@ if (!function_exists('sd_now_and_next_render_fixture')) :
 			<td>
 				<div class="sd-team-logo sd-logo-home">
 					<? if (isset($fixture->homeLogoUrl)) { ?>
-						<img src="<?php echo esc_attr($fixture->homeLogoUrl) ?>">
+						<img src="<?php
+									echo esc_attr(
+										sd_get_cached_team_logo(
+											$fixture->homeTeam,
+											$fixture->homeLogoUrl
+										)
+									) ?>">
 					<?php } ?>
 				</div>
 				<div class="sd-team-logo sd-logo-away">
 					<? if (isset($fixture->awayLogoUrl)) { ?>
-						<img src="<?php echo esc_attr($fixture->awayLogoUrl) ?>">
+						<img src="<?php echo esc_attr(
+										sd_get_cached_team_logo(
+											$fixture->awayTeam,
+											$fixture->awayLogoUrl
+										)
+									) ?>">
 					<?php } ?>
 				</div>
 				<?php

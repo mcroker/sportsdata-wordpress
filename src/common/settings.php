@@ -35,12 +35,7 @@ add_action( 'admin_init', 'sd_register_settings' );
 
 function sd_plugin_options_validate( $input ) {
     $newinput['api_key'] = trim( $input['api_key'] );
-    if ( ! preg_match( '/^[a-z0-9]{2}$/i', $newinput['api_key'] ) ) {
-        $newinput['api_key'] = '';
-    }
-
     $newinput['api_url'] = trim( $input['api_url'] );
-
     return $newinput;
 }
 
@@ -50,12 +45,12 @@ function sd_plugin_section_text() {
 
 function sd_plugin_setting_api_key() {
     $options = get_option( 'sd_plugin_options' );
-    echo "<input id='sd_plugin_setting_api_key' name='sd_plugin_options[api_key]' size=35 type='text' value='" . esc_attr( $options['api_key'] ?? '' ) . "' />";
+    echo "<input id='sd_plugin_setting_api_key' name='sd_plugin_options[api_key]' size=80 type='text' value='" . esc_attr( $options['api_key'] ?? '' ) . "' />";
 }
 
 function sd_plugin_setting_api_url() {
     $options = get_option( 'sd_plugin_options' );
-    echo "<input id='sd_plugin_setting_api_url' name='sd_plugin_options[api_url]' size=60 type='text' value='" . esc_attr( $options['api_url'] ?? '' ) . "' />";
+    echo "<input id='sd_plugin_setting_api_url' name='sd_plugin_options[api_url]' size=80 type='text' value='" . esc_attr( $options['api_url'] ?? '' ) . "' />";
 }
 
 function sd_enqueue_custom_admin_style() {

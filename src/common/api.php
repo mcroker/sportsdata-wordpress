@@ -1,6 +1,22 @@
 <?php
 require_once plugin_dir_path(__FILE__) . '../common/index.php';
 
+if (!function_exists('sd_api_team_logo_get')) :
+    function sd_api_team_logo_get($request_data)
+    {
+        $parameters = $request_data->get_params();
+        $basename = strtolower(str_replace([' & ', ' '], ['_and_', '_'], $parameters['team']));
+        $key = 'sd_team_logo_' . $basename;
+        $cache = get_transient($key);
+        if ($cache !== false) {
+            header('Content-Type: image/png');
+            echo base64_decode($cache);
+            exit;
+        }
+        wp_send_json(null, 404);
+    }
+endif;
+
 if (!function_exists('sd_api_team_get')) :
     function sd_api_team_get($request_data)
     {
@@ -18,8 +34,12 @@ if (!function_exists('sd_api_accepts')) :
 endif;
 
 add_action('rest_api_init', function () {
-    register_rest_route('sportsdata/v1', '/team/(?P<team>[a-zA-Z0-9-]+)', array(
+    register_rest_route('sportsdata/v1', '/team/(?P<team>[a-zA-Z0-9-_]+)', array(
         'methods' => 'GET',
         'callback' => 'sd_api_team_get'
+    ));
+    register_rest_route('sportsdata/v1', '/logo/(?P<team>[a-zA-Z0-9-_]+).png', array(
+        'methods' => 'GET',
+        'callback' => 'sd_api_team_logo_get'
     ));
 });

@@ -1,3 +1,5 @@
+var sdparam;
+
 function refreshTable(params) {
     console.info('SportsData Now & Next: Updating fixtures using API');
     jQuery.ajax({
@@ -29,7 +31,13 @@ function refreshTable(params) {
 }
 
 jQuery('document').ready(function () {
-    if (sdparams.isStale !== false) {
+    let isNowAndNext = false;
+    try {
+        isNowAndNext = undefined !== sdparams;
+    } catch {
+        // Throw this away - clearly not our page
+    }
+    if (isNowAndNext && sdparams.isStale !== false) {
         refreshTable(sdparams);
     } else {
         console.info('SportsData Now & Next: No API update required');

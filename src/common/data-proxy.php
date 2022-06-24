@@ -1,12 +1,6 @@
 <?php
 require_once 'SDTeam.php';
-
-abstract class CacheMode
-{
-    const fetchexpired = 0;
-    const cacheonly = 1;
-    const serveronly = 2;
-}
+require_once 'cache.php';
 
 if (!function_exists('sd_get_team')) :
     function sd_get_team($teamkey, $args = array()): ?SDTeam
@@ -20,51 +14,87 @@ endif;
 if (!function_exists('sd_get_team_data')) :
     function sd_get_team_data($teamkey, $args = array()): ?stdClass
     {
-        $key = "sd_team_$teamkey";
-        $stalekey = "sd_team_stale_$teamkey";
+        $cachekey = "team_$teamkey";
 
         $optCacheMode = isset($args['cachemode']) ? $args['cachemode'] : CacheMode::fetchexpired;
         $optForceReset = ($optCacheMode === CacheMode::serveronly);
         $optCacheOnly = ($optCacheMode === CacheMode::cacheonly);
-        $optTimeout = isset($args['timeout']) ? $args['forceReftimeoutresh'] : 30;
+        $optTimeout = isset($args['timeout']) ? $args['timeout'] : 30;
 
-        $isStale = false;
-        $data = get_transient($key);
-        if ($data === false && $optCacheOnly) {
-            $data = get_transient($stalekey);
-            $isStale = true;
-        }
+        $cache = sd_get_cache_data($cachekey);
+        $isStale = !isset($cache) || $cache['is_stale'];
+        $isModifed = false;
+        $json = null;
 
-        if (($data === false || $optForceReset) && !$optCacheOnly) {
-            $options  = get_option('sd_plugin_options');
-            $url      = $options['api_url'];
-            $getargs  = array(
-                'timeout'     => $optTimeout
-            );
-            $response = wp_remote_get("$url/v1/team/$teamkey", $getargs);
-            $body     = wp_remote_retrieve_body($response);
-            $json     = json_decode($body);
-            $json->isStale = false;
-
-            set_transient($key, $body, isset($json->cacheFor) ? $json->cacheFor : 600); // default 10mins
-
-            $staledata = get_transient($stalekey);
-            if ($body !== $staledata) {
-                $json->isUpdated = true;
-                set_transient($stalekey, $body, 0); // Keep a copy forever
-            } else {
-                $json->isUpdated = false;
+        if (($isStale || $optForceReset) && !$optCacheOnly) {
+            $fetchresult = sd_get_server_team_data($teamkey, $optTimeout);
+            if ($fetchresult !== null) {
+                $isModifed = sd_set_cache_data($cachekey, $fetchresult['body'], $fetchresult['expires']);
+                $isStale = false;
+                $json = $fetchresult['json'];
             }
-
-        } elseif ($data !== false) {
-            $json = json_decode($data);
-            $json->isStale = $isStale;
-            $json->isUpdated = false;
-
-        } else {
-            $json = null;
         }
 
+        if (!isset($json) && isset($cache['data'])) {
+            $json = json_decode($cache['data']);
+        }
+
+        if (isset($json)) {
+            $json->isUpdated = $isModifed;
+            $json->isStale = $isStale;
+        }
         return $json;
+    }
+endif;
+
+if (!function_exists('sd_get_server_team_data')) :
+    function sd_get_server_team_data($teamkey, $timeout = 30): ?array
+    {
+        $options  = get_option('sd_plugin_options');
+        $url      = $options['api_url'];
+        $getargs  = array(
+            'timeout' => $timeout,
+            'headers' => array(
+                'Content-Type'  => 'application/json',
+                'Authorization' => 'Bearer ' . $options['api_key']
+            )
+
+        );
+        $result   = array();
+        $response = wp_remote_get("$url/v1/team/$teamkey", $getargs);
+        if (wp_remote_retrieve_response_code($response) === 200) {
+            $body = wp_remote_retrieve_body($response);
+            $json = json_decode($body);
+            if ($json !== null) {
+                $result['body'] = $body;
+                $result['json'] = $json;
+                $result['expires'] = wp_remote_retrieve_header($response, 'expires');
+                $result['last-modifed'] = wp_remote_retrieve_header($response, 'last-modifed');
+                return $result;
+            } else {
+                return null;
+            }
+        } else {
+            return null;
+        }
+    }
+endif;
+
+if (!function_exists('sd_get_cached_team_logo')) :
+    function sd_get_cached_team_logo($team, $url): string
+    {
+        $basename = strtolower(str_replace([' & ', ' '], ['_and_', '_'], $team));
+        $key = 'sd_team_logo_' . $basename;
+        $logourl = get_transient($key);
+        if ($logourl === false) {
+            $image_resource = imagecreatefrompng($url);
+            $temp = tempnam(sys_get_temp_dir(), 'image_cache_');
+            imagepng($image_resource, $temp);
+            $image_data = file_get_contents($temp);
+            set_transient($key, base64_encode($image_data), 3600);
+            return site_url() . '/wp-json/sportsdata/v1/logo/' . $basename . '.png';
+        } else {
+            return site_url() . '/wp-json/sportsdata/v1/logo/' . $basename . '.png';
+        }
     }
 endif;
