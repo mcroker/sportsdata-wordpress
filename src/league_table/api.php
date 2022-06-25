@@ -12,7 +12,7 @@ if (!function_exists('sd_api_league_table_post')) :
             $team = sd_get_team($parameters['team']);
             if (sd_api_accepts($headers, 'text/html')) {
                 if ($team->isUpdated) {
-                    header("Content-Type: text\html");
+                    header("Content-Type: text/html");
                     echo sd_league_table_render_content_inner($parameters['uid'], $team);
                     exit();
                 } else {

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "sportsdata/fixtures-list",
+  "version": "0.1.0",
+  "title": "SportsData: Fixtures List",
+  "category": "sportsdata",
+  "icon": "universal-access-alt",
+  "attributes": {
+    "teamkey": {
+      "type": "string"
+    }
+  },
+  "example": {
+    "attributes": {
+      "teamkey": "my-team"
+    }
+  },
+  "supports": {
+    "html": false
+  },
+  "textdomain": "sportsdata",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

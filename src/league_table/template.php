@@ -27,13 +27,14 @@ if (!function_exists('sd_league_table_render_callback')) :
 			<script type="text/javascript">
 				var leagueTableParams;
 				(function($) {
-					"use strict";
-					leagueTableParams = {
+					sdRegisterBlock({
 						uid: "<?php echo $uid ?>",
 						url: "<?php echo get_site_url(null, '/wp-json/sportsdata/v1') ?>",
+						function: "league_table",
+						data: {},
 						teamkey: "<?php echo $attributes['teamkey'] ?>",
 						isStale: <?php echo (($team === null || $team->isStale === true) && get_query_var('force_refresh') !== 'true') ? "true" : "false" ?>
-					};
+					});
 				})(jQuery);
 			</script>
 			<div id="sd_content_<? echo $uid; ?>">
@@ -51,9 +52,9 @@ if (!function_exists('sd_league_table_render_content_inner')) :
 		ob_start();
 		$defaultcompetition = $team->competitions[0];
 	?>
-		<table id="sd_leaguetable_<? echo $uid; ?>" class="sd-league-table">
-			<thead class="sd-table-header">
-				<th colspan="14" class="sd-league-title"><?php echo esc_html($defaultcompetition->displayname); ?></th>
+		<table class="sd-competition-table">
+			<thead class="sd-table-title">
+				<th colspan="14"><?php echo esc_html($defaultcompetition->displayname); ?></th>
 			</thead>
 			<thead class="sd-table-caption">
 				<th class="sd-col-gt2">Pos</th>
@@ -75,18 +76,13 @@ if (!function_exists('sd_league_table_render_content_inner')) :
 			// uasort($team->competitions, array('TMCompetition', 'sort_by_sortkey_asc'));
 			foreach ($team->competitions as $competition) {
 			?>
-				<tbody id="<?php echo 'sd_league_data_' . $uid . '_' . $competition->id; ?>" class="sd-league-data" <?php if ($competition->id !== $defaultcompetition->id) {
+				<tbody id="<?php echo 'sd_tbody_' . $uid . '_' . $competition->id; ?>" class="sd-competition-data" <?php if ($competition->id !== $defaultcompetition->id) {
 																														echo 'hidden';
 																													} ?>>
 					<?php
 					foreach ($competition->table as $tableentry) {
-						/* if ($tableentry->team == $team->leagueteam) {
-					$entryclass = 'sd-highlightedleagueentry';
-				} */
-						$highlightclass = '';
-
 					?>
-						<tr class="sd-leagueentry <?php echo esc_attr($highlightclass) ?>">
+						<tr class="<?php echo ($tableentry->isCurrentTeam) ? 'sd-highlighted-row' : '' ?>">
 							<td class="sd-col-gt1 sd-number"><?php echo esc_html($tableentry->position) ?></td>
 							<td class="sd-col-gt1"><?php echo esc_html($tableentry->team) ?></td>
 							<td class="sd-col-gt2 sd-number"><?php echo esc_html($tableentry->played) ?></td>
@@ -107,7 +103,7 @@ if (!function_exists('sd_league_table_render_content_inner')) :
 		</table>
 		<div class="sd-competition-select">
 			<?php if (sizeof($team->competitions) > 1) { ?>
-				<select name="tm_leaguetable_competitions" onchange="java_script_:sdLeaguetableSelectCompetition('<?php echo $uid; ?>', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
+				<select onchange="java_script_:sdSelectCompetition('<?php echo $uid; ?>', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
 					<?php
 					foreach ($team->competitions as $competition) {
 					?>

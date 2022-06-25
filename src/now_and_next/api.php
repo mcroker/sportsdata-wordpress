@@ -9,13 +9,14 @@ if (!function_exists('sd_api_now_and_next_post')) :
 
         $maxfixtures = $request_data['maxfixtures'];
         $maxfuture = $request_data['maxfuture'];
+        $title = $request_data['title'];
 
         $team = sd_get_team($parameters['team']);
 
         if (sd_api_accepts($headers, 'text/html')) {
             if (isset($team) && $team->isUpdated) {
-                header("Content-Type: text\html");
-                echo sd_now_and_next_render_tbody_inner($team, $maxfixtures, $maxfuture);
+                header("Content-Type: text/html");
+                echo sd_now_and_next_render_tbody_inner($team, $title, $maxfixtures, $maxfuture);
                 exit();
             } else {
                 wp_send_json_error(null, 304); // Not Modified

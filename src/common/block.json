@@ -1,0 +1,13 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 2,
+  "name": "sportsdata/common",
+  "version": "0.1.0",
+  "title": "SportsData: Common Utilities",
+  "category": "sportsdata",
+  "icon": "universal-access-alt",
+  "textdomain": "sportsdata",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}

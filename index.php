@@ -28,8 +28,15 @@ add_filter('block_categories_all', function ($categories) {
 	return $categories;
 });
 
-wp_enqueue_script("jquery");
+function sd_enqueue_scripts()
+{
+	wp_enqueue_script("jquery");
+	wp_enqueue_script('sd_common_script', plugin_dir_url(__FILE__) . 'assets/common.js', array(), '1.0.0', false);
+	wp_enqueue_style('sd_common_style', plugin_dir_url(__FILE__) . 'build/common/style-index.css');
+}
+add_action('wp_enqueue_scripts', 'sd_enqueue_scripts');
 
 require_once plugin_dir_path(__FILE__) . 'build/common/index.php';
 require_once plugin_dir_path(__FILE__) . 'build/now_and_next/index.php';
 require_once plugin_dir_path(__FILE__) . 'build/league_table/index.php';
+require_once plugin_dir_path(__FILE__) . 'build/fixtures_list/index.php';

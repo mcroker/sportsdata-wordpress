@@ -12,6 +12,7 @@ if (!class_exists('SDFixture')) :
         public $awayTeam = null;
         public $homeScore = null;
         public $awayScore = null;
+        public $isHome = null;
 
         function __construct($data)
         {
@@ -28,6 +29,7 @@ if (!class_exists('SDFixture')) :
             $this->awayTeam = isset($data->awayTeam) ? $data->awayTeam : null;
             $this->homeScore = isset($data->homeScore) ? $data->homeScore : null;
             $this->awayScore = isset($data->awayScore) ? $data->awayScore : null;
+            $this->isHome = isset($data->isHome) ? $data->isHome : null;
         }
 
         public static function sort_by_date_asc($a, $b)

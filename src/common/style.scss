@@ -1,0 +1,72 @@
+.sd-competition-table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+
+    .sd-highlighted-row TD {
+        background-color: yellow;
+    }
+
+    TH,
+    TD {
+        border-color: lightgrey;
+        padding-top: 1px;
+        padding-bottom: 1px;
+    }
+
+    TD.sd-number {
+        text-align: right;
+    }
+
+    DIV.sd-competition-select {
+        text-align: left;
+        select {
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+    }
+
+    @media screen and (max-width: 880px) {
+        .sd-col-gt5 {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 881px) {
+        .sd-col-lt5 {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        .sd-col-gt4 {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 801px) {
+        .sd-col-lt4 {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        .sd-col-gt3 {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 601px) {
+        .sd-col-lt3 {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 350px) {
+        .sd-col-gt2 {
+            display: none;
+        }
+    }
+    @media screen and (min-width: 351px) {
+        .sd-col-lt2 {
+            display: none;
+        }
+    }
+}

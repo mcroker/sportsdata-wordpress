@@ -17,8 +17,10 @@ function sd_now_and_next_block_init()
 }
 add_action('init', 'sd_now_and_next_block_init');
 
+/*
 function sd_now_and_next_scripts()
 {
 	wp_enqueue_script('sd_now_and_next_script', plugin_dir_url(__DIR__) . '../assets/now_and_next.js', array(), '1.0.0', true);
 }
 add_action('wp_enqueue_scripts', 'sd_now_and_next_scripts');
+*/

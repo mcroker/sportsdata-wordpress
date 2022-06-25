@@ -7,23 +7,19 @@ if (!class_exists('SDTeam')) :
     {
         public $isStale = null;
         public $isUpdated = null;
-        public $fixtures = [];
         public $competitions = [];
+        public $allFixtures = [];
 
         function __construct($data)
         {
-            if (isset($data->fixtures) && is_array(($data->fixtures))) {
-                foreach ($data->fixtures as $fixture) {
-                    $this->fixtures[] = new SDFixture($fixture);
-                }
-            } else {
-                throw new Exception('Invalid fixtures property in API result');
-            }
+
             $this->isStale = isset($data->isStale) ? $data->isStale : null;
             $this->isUpdated = isset($data->isUpdated) ? $data->isUpdated : null;
             if (isset($data->competitions) && is_array(($data->competitions))) {
                 foreach ($data->competitions as $competition) {
-                    $this->competitions[] = new SDCompetition($competition);
+                    $competition = new SDCompetition($competition);
+                    $this->competitions[] = $competition;
+                    $this->allFixtures = array_merge($this->allFixtures, $competition->fixtures);
                 }
             } else {
                 throw new Exception('Invalid competitions property in API result');
@@ -38,7 +34,7 @@ if (!class_exists('SDTeam')) :
             $rowsdisplayed = 0;
             $nowtimestamp = time();
             $displayfixtures = [];
-            $fixtures = $this->fixtures;
+            $fixtures = $this->allFixtures;
 
             // Next $maxfuture Future fixtures
             uasort($fixtures, array('SDFixture', 'sort_by_date_asc'));

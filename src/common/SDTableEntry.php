@@ -13,6 +13,7 @@ if (!class_exists('SDTableEntry')) :
         public $tryBonus;
         public $losingBonus;
         public $leaguePoints;
+        public $isCurrentTeam;
 
         function __construct($data)
         {
@@ -27,6 +28,7 @@ if (!class_exists('SDTableEntry')) :
             $this->tryBonus = isset($data->tryBonus) ? $data->tryBonus : null;
             $this->losingBonus = isset($data->losingBonus) ? $data->losingBonus : null;
             $this->leaguePoints = isset($data->leaguePoints) ? $data->leaguePoints : null;
+            $this->isCurrentTeam = isset($data->isCurrentTeam) ? $data->isCurrentTeam : null;
         }
     }
 endif;
