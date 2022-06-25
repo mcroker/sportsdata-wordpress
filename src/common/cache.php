@@ -16,13 +16,17 @@ if (!function_exists('sd_add_force_reset_param')) :
 endif;
 
 if (!function_exists('sd_get_cache_data')) :
-    function sd_get_cache_data($key): ?array
+    function sd_get_cache_data($key, $force_fail = false): ?array
     {
+        if ($force_fail) {
+            delete_transient('sd_' . $key);
+        }
         $transient = get_transient('sd_' . $key);
         if ($transient !== false) {
             $response = array();
             $response['data'] = $transient['data'];
             $response['is_stale'] = false;
+            $response['hash'] = $transient['hash'];
             if (isset($transient['expiry']) && $transient['expiry'] <= new DateTime()) {
                 $response['is_stale'] = true;
             }

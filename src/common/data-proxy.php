@@ -23,7 +23,7 @@ if (!function_exists('sd_get_team_data')) :
         $cache = ($optCacheMode !== CacheMode::serveronly) ? sd_get_cache_data($cachekey) : null;
         $isStale = !isset($cache) || $cache['is_stale'];
         $json = null;
-        $hash = (isset($cache) && isset($cache['hash'])) ? $cache['hash'] : null;
+        $hash = isset($cache) ? $cache['hash'] : null;
 
         if (($isStale || $optForceReset) && !$optCacheOnly) {
             $fetchresult = sd_get_server_team_data($teamkey, $optTimeout);
