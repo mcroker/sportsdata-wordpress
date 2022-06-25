@@ -7,16 +7,16 @@ if (!function_exists('sd_api_fixtures_list_post')) :
         $parameters = $request_data->get_params();
         $headers = $request_data->get_headers();
 
-        if (isset($parameters['team'])) {
+        if (isset($parameters['team']) && isset($parameters['uid'])) {
             $team = sd_get_team($parameters['team']);
             if (isset($team)) {
                 if (sd_api_accepts($headers, 'text/html')) {
-                    if ($team->isUpdated) {
-                        header("Content-Type: text/html");
-                        echo sd_now_and_next_render_tbody_inner($team);
-                        exit();
-                    } else {
+                    if (isset($parameters['hash']) && $parameters['hash'] === $team->hash) {
                         wp_send_json_error(null, 304); // Not Modified
+                    } else {
+                        header("Content-Type: text/html");
+                        echo sd_fixture_list_render_content_inner($parameters['uid'], $team);
+                        exit();
                     }
                 } else {
                     wp_send_json_error(null, 415); // Unsupported Media

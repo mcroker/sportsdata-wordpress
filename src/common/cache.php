@@ -26,6 +26,7 @@ if (!function_exists('sd_get_cache_data')) :
             if (isset($transient['expiry']) && $transient['expiry'] <= new DateTime()) {
                 $response['is_stale'] = true;
             }
+
             return $response;
         } else {
             return null;
@@ -36,14 +37,14 @@ endif;
 if (!function_exists('sd_set_cache_data')) :
     // Returns true if the data has been modifed
     // Expire UTC Timestring
-    function sd_set_cache_data($key, $value, $expire): bool
+    function sd_set_cache_data($key, $value, $expire): string
     {
         $transient = array(
             'data' => $value,
-            'expiry' => (is_string($expire)) ? new DateTime($expire, new DateTimeZone('UTC')) : $expire
+            'expiry' => (is_string($expire)) ? new DateTime($expire, new DateTimeZone('UTC')) : $expire,
+            'hash' => hash('ripemd160', $value)
         );
-        $existing = get_transient('sd_' . $key);
         set_transient('sd_' . $key, $transient);
-        return (is_array($existing) && $existing['data'] !== $value);
+        return $transient['hash'];
     }
 endif;

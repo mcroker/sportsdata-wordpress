@@ -11,12 +11,12 @@ if (!function_exists('sd_api_league_table_post')) :
         if (isset($parameters['team']) && isset($parameters['uid'])) {
             $team = sd_get_team($parameters['team']);
             if (sd_api_accepts($headers, 'text/html')) {
-                if ($team->isUpdated) {
+                if (isset($parameters['hash']) && $parameters['hash'] === $team->hash) {
+                    wp_send_json_error(null, 304); // Not Modified
+                } else {
                     header("Content-Type: text/html");
                     echo sd_league_table_render_content_inner($parameters['uid'], $team);
                     exit();
-                } else {
-                    wp_send_json_error(null, 304); // Not Modified
                 }
             } else {
                 wp_send_json_error(null, 415); // Unsupported Media

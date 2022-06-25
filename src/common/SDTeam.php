@@ -7,6 +7,7 @@ if (!class_exists('SDTeam')) :
     {
         public $isStale = null;
         public $isUpdated = null;
+        public $hash = null;
         public $competitions = [];
         public $allFixtures = [];
 
@@ -15,6 +16,7 @@ if (!class_exists('SDTeam')) :
 
             $this->isStale = isset($data->isStale) ? $data->isStale : null;
             $this->isUpdated = isset($data->isUpdated) ? $data->isUpdated : null;
+            $this->hash = isset($data->hash) ? $data->hash : null;
             if (isset($data->competitions) && is_array(($data->competitions))) {
                 foreach ($data->competitions as $competition) {
                     $competition = new SDCompetition($competition);

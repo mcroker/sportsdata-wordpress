@@ -7,7 +7,6 @@ if (!function_exists('sd_get_team')) :
     {
         $data = sd_get_team_data($teamkey, $args);
         return ($data !== null) ? new SDTeam($data) : null;
-        return new SDTeam(sd_get_team_data($teamkey, $args));
     }
 endif;
 
@@ -21,15 +20,15 @@ if (!function_exists('sd_get_team_data')) :
         $optCacheOnly = ($optCacheMode === CacheMode::cacheonly);
         $optTimeout = isset($args['timeout']) ? $args['timeout'] : 30;
 
-        $cache = sd_get_cache_data($cachekey);
+        $cache = ($optCacheMode !== CacheMode::serveronly) ? sd_get_cache_data($cachekey) : null;
         $isStale = !isset($cache) || $cache['is_stale'];
-        $isModifed = false;
         $json = null;
+        $hash = (isset($cache) && isset($cache['hash'])) ? $cache['hash'] : null;
 
         if (($isStale || $optForceReset) && !$optCacheOnly) {
             $fetchresult = sd_get_server_team_data($teamkey, $optTimeout);
             if ($fetchresult !== null) {
-                $isModifed = sd_set_cache_data($cachekey, $fetchresult['body'], $fetchresult['expires']);
+                $hash = sd_set_cache_data($cachekey, $fetchresult['body'], $fetchresult['expires']);
                 $isStale = false;
                 $json = $fetchresult['json'];
             }
@@ -40,8 +39,8 @@ if (!function_exists('sd_get_team_data')) :
         }
 
         if (isset($json)) {
-            $json->isUpdated = $isModifed;
             $json->isStale = $isStale;
+            $json->hash = $hash;
         }
         return $json;
     }

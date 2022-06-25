@@ -37,6 +37,7 @@ if (!function_exists('sd_now_and_next_render_callback')) :
 							maxfixtures: <?php echo $attributes['maxrows'] ?>,
 							maxfuture: <?php echo $attributes['maxfuture'] ?>
 						},
+						hash: <?php echo (isset($team)) ? "'$team->hash'" : 'null'; ?>,
 						isStale: <?php echo (($team === null || $team->isStale === true) && get_query_var('force_refresh') !== 'true') ? "true" : "false" ?>
 					});
 				})(jQuery);
