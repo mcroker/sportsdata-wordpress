@@ -36,14 +36,18 @@ if (!class_exists('SDFixture')) :
         {
             $atz = $a->timestamp;
             $btz =  $b->timestamp;
-            return ($atz > $btz);
+            if ($atz < $btz) {
+                return -1;
+            } elseif ($atz = $btz) {
+                return 0;
+            } else {
+                return 1;
+            }
         }
 
         public static function sort_by_date_desc($a, $b)
         {
-            $atz = $a->timestamp;
-            $btz =  $b->timestamp;
-            return ($atz < $btz);
+            return SDFixture::sort_by_date_asc($a, $b) * -1;
         }
     }
 

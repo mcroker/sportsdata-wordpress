@@ -6,12 +6,15 @@ if (!function_exists('sd_api_now_and_next_post')) :
     {
         $parameters = $request_data->get_params();
         $headers = $request_data->get_headers();
-        $maxfixtures = $request_data['maxfixtures'];
-        $maxfuture = $request_data['maxfuture'];
-        $title = $request_data['title'];
+        $maxfixtures = $parameters['maxfixtures'];
+        $maxfuture = $parameters['maxfuture'];
+        $title = $parameters['title'];
+        $arguments = array(
+            'cachemode' => (isset($parameters['force']) && $parameters['force']) ? CacheMode::serveronly : CacheMode::fetchexpired
+        );
 
         if (isset($parameters['team']) && isset($parameters['uid'])) {
-            $team = sd_get_team($parameters['team']);
+            $team = sd_get_team($parameters['team'], $arguments);
             if (sd_api_accepts($headers, 'text/html')) {
                 if (isset($parameters['hash']) && $parameters['hash'] === $team->hash) {
                     wp_send_json_error(null, 304); // Not Modified

@@ -1,20 +1,12 @@
 {
-	"name": "gutenberg-examples",
+	"name": "sportsdata",
 	"version": "1.1.0",
 	"private": true,
-	"description": "Gutenberg Examples",
-	"author": "The WordPress Contributors",
-	"license": "GPL-2.0-or-later",
-	"keywords": [
-		"WordPress",
-		"editor",
-		"Examples"
-	],
-	"homepage": "https://github.com/WordPress/gutenberg-examples/",
-	"repository": "git+https://github.com/WordPress/gutenberg-examples.git",
-	"bugs": {
-		"url": "https://github.com/WordPress/gutenberg-examples/issues"
-	},
+	"description": "SportsData wordpress plugin",
+	"author": "Martin Croker",
+	"license": "none",
+	"homepage": "https://github.com/mcroker",
+	"repository": "https://github.com/mcroker",
 	"devDependencies": {
 		"@wordpress/env": "^4.6.0",
 		"@wordpress/scripts": "^23.0.0",
@@ -22,6 +14,11 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"prettier": "npm:wp-prettier@2.2.1-beta-1"
 	},
+	"files": [
+		"build",
+		"public",
+		"index.php"
+	],
 	"prettier": "@wordpress/prettier-config",
 	"scripts": {
 		"start": "wp-scripts start --webpack-copy-php --webpack-src-dir=src --output-path=build",

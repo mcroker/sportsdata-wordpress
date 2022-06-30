@@ -7,9 +7,12 @@ if (!function_exists('sd_api_league_table_post')) :
     {
         $parameters = $request_data->get_params();
         $headers = $request_data->get_headers();
+        $arguments = array(
+            'cachemode' => (isset($parameters['force']) && $parameters['force']) ? CacheMode::serveronly : CacheMode::fetchexpired
+        );
 
         if (isset($parameters['team']) && isset($parameters['uid'])) {
-            $team = sd_get_team($parameters['team']);
+            $team = sd_get_team($parameters['team'], $arguments);
             if (sd_api_accepts($headers, 'text/html')) {
                 if (isset($parameters['hash']) && $parameters['hash'] === $team->hash) {
                     wp_send_json_error(null, 304); // Not Modified

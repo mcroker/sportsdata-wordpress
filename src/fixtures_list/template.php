@@ -17,7 +17,7 @@ if (!function_exists('sd_fixtures_list_render_callback')) :
 		$uid = uniqid();
 		if (isset($attributes['teamkey'])) {
 			$team = sd_get_team($attributes['teamkey'], array(
-				'cachemode' => get_query_var('force_refresh') === 'true' ? CacheMode::serveronly : CacheMode::cacheonly
+				'cachemode' => CacheMode::fetchexpired
 			));
 		} else {
 			$team = null;
@@ -33,7 +33,8 @@ if (!function_exists('sd_fixtures_list_render_callback')) :
 						data: {},
 						hash: <?php echo (isset($team)) ? "'$team->hash'" : 'null'; ?>,
 						teamkey: '<?php echo $attributes['teamkey'] ?>',
-						isStale: <?php echo (($team === null || $team->isStale === true) && get_query_var('force_refresh') !== 'true') ? "true" : "false" ?>
+						force: <?php echo get_query_var('force_refresh') === 'true' ? "true" : "false" ?>,
+						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
 					});
 				})(jQuery);
 			</script>

@@ -30,7 +30,8 @@ function sdRefreshDiv(params) {
 				...params.data,
 				uid: params.uid,
 				hash: params.hash,
-				team: params.teamkey
+				team: params.teamkey,
+				force: params.force
 			},
 			url: params.url + '/team/' + params.teamkey + '/' + params.function,
 			success: function (data) {
