@@ -4,7 +4,7 @@
  * Plugin Name: SportsData 
  * Plugin URI: https://github.com/
  * Description: This is a plugin to display data from sportsdata API
- * Version: 1.1.0
+ * Version: 1.0.1
  * Author: Martin Croker
  *
  * @package sportsdata

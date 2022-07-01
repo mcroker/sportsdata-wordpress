@@ -9,6 +9,7 @@
  */
 
 require_once plugin_dir_path(__FILE__) . '../common/index.php';
+require_once 'utils.php';
 
 if (!function_exists('sd_now_and_next_render_callback')) :
 	function sd_now_and_next_render_callback($attributes, $content, $block_instance)
@@ -66,7 +67,7 @@ if (!function_exists('sd_now_and_next_render_content_inner')) :
 			<tbody>
 				<?php
 				if (isset($team)) {
-					$fixtures = $team->fixtures_now_and_next($maxfixtures, $maxfuture);
+					$fixtures = sd_fixtures_now_and_next($team->allFixtures, $maxfixtures, $maxfuture);
 					foreach ($fixtures as $fixture) {
 				?>
 						<tr class="sd-event-row">

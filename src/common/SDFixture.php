@@ -38,7 +38,7 @@ if (!class_exists('SDFixture')) :
             $btz =  $b->timestamp;
             if ($atz < $btz) {
                 return -1;
-            } elseif ($atz = $btz) {
+            } elseif ($atz === $btz) {
                 return 0;
             } else {
                 return 1;
