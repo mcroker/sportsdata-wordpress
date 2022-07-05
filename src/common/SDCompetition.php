@@ -41,5 +41,23 @@ if (!class_exists('SDCompetition')) :
 
             $this->displayname = $this->season . '/' . strval(intval($this->season) - 1999) . ' ' . $this->name;
         }
+
+        public static function sort_by_season_asc($a, $b)
+        {
+            $aseason = intval($a->season);
+            $bseason =  intval($b->season);
+            if ($aseason < $bseason) {
+                return -1;
+            } elseif ($aseason === $bseason) {
+                return 0;
+            } else {
+                return 1;
+            }
+        }
+
+        public static function sort_by_season_desc($a, $b)
+        {
+            return SDCompetition::sort_by_season_asc($a, $b) * -1;
+        }
     }
 endif;

@@ -52,8 +52,10 @@ if (!function_exists('sd_fixture_list_render_content_inner')) :
 	{
 		ob_start();
 		if (isset($team)) {
+			$competitions = $team->competitions;
+			usort($competitions, array('SDCompetition', 'sort_by_season_desc'));
 			if (!isset($defaultcompetition)) {
-				$defaultcompetition = $team->competitions[0];
+				$defaultcompetition = $competitions[0];
 			}
 		?>
 			<table class="sd-competition-table">
@@ -67,7 +69,9 @@ if (!function_exists('sd_fixture_list_render_content_inner')) :
 					<th>Score For</th>
 					<th>Score Against</th>
 				</thead>
-				<?php foreach ($team->competitions as $competition) { ?>
+				<?php
+				foreach ($competitions as $competition) {
+				?>
 					<tbody id="<?php echo 'sd_tbody_' . $uid . '_' . $competition->id ?>" class="sd-competition-data" <?php if ($competition->id !== $defaultcompetition->id) {
 																															echo 'hidden';
 																														} ?>>
@@ -93,16 +97,14 @@ if (!function_exists('sd_fixture_list_render_content_inner')) :
 			<?php } ?>
 			</table>
 			<div class="sd-competition-select">
-				<?php if (sizeof($team->competitions) > 1) { ?>
+				<?php if (sizeof($competitions) > 1) { ?>
 					<select onchange="java_script_:sdSelectCompetition('<?php echo $uid; ?>', this.options[this.selectedIndex].value, this.options[this.selectedIndex].text)">
-						<?php
-						foreach ($team->competitions as $competition) {
-						?>
+						<?php foreach ($competitions as $competition) { ?>
 							<option value='<?php echo esc_attr($competition->id) ?>' <?php selected($competition->id, $defaultcompetition->id) ?>><?php echo esc_html($competition->displayname) ?></option>
 						<?php } ?>
 					</select>
 				<?php } else { ?>
-					<span><?php echo esc_html($team->competitions[0]->name) ?></span>
+					<span><?php echo esc_html($competitions[0]->name) ?></span>
 				<?php } ?>
 			</div>
 
