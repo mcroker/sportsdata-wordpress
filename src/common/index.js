@@ -6,13 +6,3 @@
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './style.scss';
-
-export function sdSelectCompetition(uid, compid, comptext) {
-	jQuery('#sd_content_' + uid + ' tbody.sd-competition-data')
-		.not('#sd_tbody_' + uid + '_' + compid)
-		.hide();
-	jQuery('#sd_tbody_' + uid + '_' + compid)
-		.show();
-	jQuery('#sd_content_' + uid + ' TH.sd-table-title')
-		.html(comptext);
-}
