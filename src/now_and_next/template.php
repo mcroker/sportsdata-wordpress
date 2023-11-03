@@ -16,35 +16,18 @@ if (!function_exists('sd_now_and_next_render_callback')) :
 	{
 		ob_start();
 		$uid = uniqid();
+		$teams = [];
 		if (isset($attributes['teamkey'])) {
-			$team = sd_get_team($attributes['teamkey'], array(
-				'cachemode' => CacheMode::fetchexpired
-			));
-		} else {
-			$team = null;
+			$teamkeys = explode(',', $attributes['teamkey']);
+			foreach ($teamkeys as $teamkey) {
+				$teams[] = SDTeam::createFromCache($teamkey);
+			}
 		}
 ?>
 		<div <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
-			<script type="text/javascript">
-				(function($) {
-					sdRegisterBlock({
-						uid: '<?php echo $uid ?>',
-						url: '<?php echo get_site_url(null, '/wp-json/sportsdata/v1') ?>',
-						teamkey: '<?php echo $attributes['teamkey'] ?>',
-						function: 'now_and_next',
-						data: {
-							title: '<?php echo $attributes['title'] ?>',
-							maxfixtures: <?php echo $attributes['maxrows'] ?>,
-							maxfuture: <?php echo $attributes['maxfuture'] ?>,
-						},
-						hash: <?php echo (isset($team)) ? "'$team->hash'" : 'null'; ?>,
-						forceRefresh: <?php echo get_query_var('force_refresh') === 'true' ? "true" : "false" ?>,
-						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
-					});
-				})(jQuery);
-			</script>
+			<?php $uid = sd_register_block($teams, 'now_and_next', $attributes); ?>
 			<div id="sd_content_<? echo $uid; ?>">
-				<?php echo sd_now_and_next_render_content_inner($team, $attributes['title'], $attributes['maxrows'], $attributes['maxfuture']); ?>
+				<?php echo sd_now_and_next_render_content_inner($teams, $attributes); ?>
 			</div>
 
 		</div>
@@ -54,44 +37,29 @@ if (!function_exists('sd_now_and_next_render_callback')) :
 endif;
 
 if (!function_exists('sd_now_and_next_render_content_inner')) :
-	function sd_now_and_next_render_content_inner($team, $title, $maxfixtures = null, $maxfuture = null): string
+	function sd_now_and_next_render_content_inner($teams, $attributes): string
 	{
 		ob_start();
 	?>
 		<table class="sd-now-next-table">
 			<thead class="sd-table-title">
-				<th><?php if (isset($title)) {
-						echo esc_html($title);
+				<th><?php if (isset($attributes["title"])) {
+						echo esc_html($attributes["title"]);
 					} ?></th>
 			</thead>
 			<tbody>
 				<?php
-				if (isset($team)) {
-					$fixtures = sd_fixtures_now_and_next($team->allFixtures, $maxfixtures, $maxfuture);
+				$fixtures = sd_fixtures_now_and_next($teams, $attributes);
+				if (is_array($fixtures)) {
 					foreach ($fixtures as $fixture) {
 				?>
 						<tr class="sd-event-row">
 							<td>
 								<div class="sd-team-logo sd-logo-home">
-									<? if (isset($fixture->homeLogoUrl)) { ?>
-										<img src="<?php
-													echo esc_attr(
-														sd_refresh_cached_team_logo(
-															$fixture->homeTeam,
-															$fixture->homeLogoUrl
-														)
-													) ?>">
-									<?php } ?>
+										<img src="<?php echo sd_team_logo_url($fixture->homeLogoUrl) ?>">
 								</div>
 								<div class="sd-team-logo sd-logo-away">
-									<? if (isset($fixture->awayLogoUrl)) { ?>
-										<img src="<?php echo esc_attr(
-														sd_refresh_cached_team_logo(
-															$fixture->awayTeam,
-															$fixture->awayLogoUrl
-														)
-													) ?>">
-									<?php } ?>
+										<img src="<?php echo sd_team_logo_url($fixture->awayLogoUrl) ?>">
 								</div>
 								<?php
 								?>

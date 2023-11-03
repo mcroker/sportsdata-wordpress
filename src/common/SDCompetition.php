@@ -8,11 +8,11 @@ if (!class_exists('SDCompetition')) :
         public $id;
         public $name;
         public $displayname;
-        public $table;
+        public $table =[];
         public $competition;
         public $season;
         public $team;
-        public $fixtures;
+        public $fixtures =[];
 
         function __construct($data)
         {

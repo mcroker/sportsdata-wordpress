@@ -21,19 +21,19 @@ function sdSelectCompetition(uid, compid, comptext) {
 }
 
 function sdRefreshDiv(params) {
-	if (params.isStale) {
+	if (params.isStale || params.force) {
 		console.info('SportsData ' + params.function + ': Updating using API');
 		jQuery.ajax({
 			type: "post",
 			dataType: "html",
-			data: {
-				...params.data,
+			data: JSON.stringify({
+				attributes: params.attributes,
 				uid: params.uid,
 				hash: params.hash,
-				team: params.teamkey,
+				teamkey: params.teamkey,
 				force: params.force
-			},
-			url: params.url + '/team/' + params.teamkey + '/' + params.function,
+			}),
+			url: params.url + '/' + params.function,
 			success: function (data) {
 				if (data !== undefined) {
 					jQuery('#sd_content_' + params.uid)

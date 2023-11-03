@@ -14,30 +14,10 @@ if (!function_exists('sd_fixtures_list_render_callback')) :
 	function sd_fixtures_list_render_callback($attributes, $content, $block_instance)
 	{
 		ob_start();
-		$uid = uniqid();
-		if (isset($attributes['teamkey'])) {
-			$team = sd_get_team($attributes['teamkey'], array(
-				'cachemode' => CacheMode::fetchexpired
-			));
-		} else {
-			$team = null;
-		}
+		$team = SDTeam::createFromCache($attributes['teamkey']);
 ?>
 		<div <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
-			<script type="text/javascript">
-				(function($) {
-					sdRegisterBlock({
-						uid: '<?php echo $uid ?>',
-						url: '<?php echo get_site_url(null, '/wp-json/sportsdata/v1') ?>',
-						function: 'fixtures_list',
-						data: {},
-						hash: <?php echo (isset($team)) ? "'$team->hash'" : 'null'; ?>,
-						teamkey: '<?php echo $attributes['teamkey'] ?>',
-						force: <?php echo get_query_var('force_refresh') === 'true' ? "true" : "false" ?>,
-						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
-					});
-				})(jQuery);
-			</script>
+			<?php $uid = sd_register_block($team, 'fixtures_list', $attributes); ?>
 			<div id="sd_content_<? echo $uid; ?>">
 				<?php echo sd_fixture_list_render_content_inner($uid, $team); ?>
 			</div>
@@ -76,6 +56,7 @@ if (!function_exists('sd_fixture_list_render_content_inner')) :
 																															echo 'hidden';
 																														} ?>>
 						<?php if (sizeof($competition->fixtures) > 0) { ?>
+							<?php usort($competition->fixtures, array('SDFixture',  'sort_by_date_asc')); ?>
 							<?php foreach ($competition->fixtures as $fixture) { ?>
 								<tr>
 									<td> <?php echo $fixture->dateTime->format('F d, Y') ?> </td>
@@ -83,13 +64,12 @@ if (!function_exists('sd_fixture_list_render_content_inner')) :
 									<td> <?php echo $fixture->isHome ? 'H' : 'A' ?> </td>
 									<td class="sd-number"> <?php echo esc_html($fixture->isHome ? $fixture->homeScore :  $fixture->awayScore) ?> </td>
 									<td class="sd-number"> <?php echo esc_html($fixture->isHome ? $fixture->awayScore :  $fixture->homeScore) ?> </td>
-									</td>
 								</tr>
 							<?php } ?>
 						<?php } else { ?>
 							<tr>
-								<td>
-									<h4><?php echo __('No fixtures', 'sd') ?></h4>
+								<td colspan="5">
+									<h4><?php echo __('No data', 'sd') ?></h4>
 								</td>
 							</tr>
 					</tbody>

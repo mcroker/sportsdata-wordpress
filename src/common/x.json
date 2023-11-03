@@ -1,0 +1,1107 @@
+{
+    "club": "Tunbridge Wells",
+    "competitions": [
+        {
+            "competitionId": 90,
+            "groupName": "London & SE Premier",
+            "competitionName": "London & SE Division",
+            "groupId": 35350,
+            "season": 2021,
+            "team": 23285,
+            "table": [
+                {
+                    "pointsAgainst": 318,
+                    "lost": 3,
+                    "won": 23,
+                    "pointsFor": 862,
+                    "leaguePoints": 111,
+                    "team": "Sevenoaks",
+                    "position": 1,
+                    "tryBonus": 17,
+                    "played": 26,
+                    "losingBonus": 2,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 322,
+                    "lost": 5,
+                    "won": 21,
+                    "pointsFor": 958,
+                    "leaguePoints": 107,
+                    "team": "Dorking",
+                    "position": 2,
+                    "tryBonus": 18,
+                    "played": 26,
+                    "losingBonus": 4,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 423,
+                    "lost": 5,
+                    "won": 21,
+                    "pointsFor": 858,
+                    "leaguePoints": 104,
+                    "team": "North Walsham",
+                    "position": 3,
+                    "tryBonus": 18,
+                    "played": 26,
+                    "losingBonus": 2,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 406,
+                    "lost": 6,
+                    "won": 19,
+                    "pointsFor": 797,
+                    "leaguePoints": 96,
+                    "team": "Hertford",
+                    "position": 4,
+                    "tryBonus": 14,
+                    "played": 26,
+                    "losingBonus": 3,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 473,
+                    "lost": 8,
+                    "won": 18,
+                    "pointsFor": 685,
+                    "leaguePoints": 89,
+                    "team": "Havant",
+                    "position": 5,
+                    "tryBonus": 13,
+                    "played": 26,
+                    "losingBonus": 3,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 603,
+                    "lost": 11,
+                    "won": 15,
+                    "pointsFor": 720,
+                    "leaguePoints": 78,
+                    "team": "Westcombe Park",
+                    "position": 6,
+                    "tryBonus": 14,
+                    "played": 26,
+                    "losingBonus": 4,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 538,
+                    "lost": 11,
+                    "won": 13,
+                    "pointsFor": 682,
+                    "leaguePoints": 69,
+                    "team": "Wimbledon",
+                    "position": 7,
+                    "tryBonus": 10,
+                    "played": 26,
+                    "losingBonus": 3,
+                    "drew": 2
+                },
+                {
+                    "pointsAgainst": 709,
+                    "lost": 16,
+                    "won": 10,
+                    "pointsFor": 613,
+                    "leaguePoints": 54,
+                    "team": "Maidenhead",
+                    "position": 8,
+                    "tryBonus": 10,
+                    "played": 26,
+                    "losingBonus": 4,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 772,
+                    "lost": 14,
+                    "won": 11,
+                    "pointsFor": 502,
+                    "leaguePoints": 52,
+                    "team": "Sidcup",
+                    "position": 9,
+                    "tryBonus": 6,
+                    "played": 26,
+                    "losingBonus": 0,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 792,
+                    "lost": 16,
+                    "won": 9,
+                    "pointsFor": 560,
+                    "leaguePoints": 47,
+                    "team": "Tring",
+                    "position": 10,
+                    "tryBonus": 7,
+                    "played": 26,
+                    "losingBonus": 6,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 735,
+                    "lost": 17,
+                    "won": 8,
+                    "pointsFor": 384,
+                    "leaguePoints": 44,
+                    "team": "Sutton & Epsom",
+                    "position": 11,
+                    "tryBonus": 5,
+                    "played": 26,
+                    "losingBonus": 3,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 849,
+                    "lost": 20,
+                    "won": 6,
+                    "pointsFor": 456,
+                    "leaguePoints": 35,
+                    "team": "Brighton",
+                    "position": 12,
+                    "tryBonus": 7,
+                    "played": 26,
+                    "losingBonus": 4,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 898,
+                    "lost": 22,
+                    "won": 4,
+                    "pointsFor": 405,
+                    "leaguePoints": 25,
+                    "team": "Tunbridge Wells",
+                    "position": 13,
+                    "tryBonus": 2,
+                    "played": 26,
+                    "losingBonus": 7,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 896,
+                    "lost": 25,
+                    "won": 1,
+                    "pointsFor": 252,
+                    "leaguePoints": -11,
+                    "team": "CS Stags 1863",
+                    "position": 14,
+                    "tryBonus": 2,
+                    "played": 26,
+                    "losingBonus": 3,
+                    "drew": 0
+                }
+            ],
+            "fixtures": [
+                {
+                    "date": "2022-04-23T00:00:00.000Z",
+                    "homeScore": 10,
+                    "awayTeam": "Dorking",
+                    "awayScore": 62,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-04-09T00:00:00.000Z",
+                    "homeScore": 17,
+                    "awayTeam": "Havant",
+                    "awayScore": 62,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-04-02T00:00:00.000Z",
+                    "homeScore": 87,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 3,
+                    "homeTeam": "Wimbledon"
+                },
+                {
+                    "date": "2022-03-26T00:00:00.000Z",
+                    "homeScore": 24,
+                    "awayTeam": "CS Stags 1863",
+                    "awayScore": 29,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-03-12T00:00:00.000Z",
+                    "homeScore": 89,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 7,
+                    "homeTeam": "North Walsham"
+                },
+                {
+                    "date": "2022-03-05T00:00:00.000Z",
+                    "homeScore": 5,
+                    "awayTeam": "Westcombe Park",
+                    "awayScore": 27,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-02-19T00:00:00.000Z",
+                    "homeScore": 36,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Sevenoaks"
+                },
+                {
+                    "date": "2022-02-12T00:00:00.000Z",
+                    "homeScore": 23,
+                    "awayTeam": "Hertford",
+                    "awayScore": 20,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-02-03T00:00:00.000Z",
+                    "homeScore": 22,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 18,
+                    "homeTeam": "Sidcup"
+                },
+                {
+                    "date": "2022-01-29T00:00:00.000Z",
+                    "homeScore": 27,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 10,
+                    "homeTeam": "Sutton & Epsom"
+                },
+                {
+                    "date": "2022-01-22T00:00:00.000Z",
+                    "homeScore": 14,
+                    "awayTeam": "Maidenhead",
+                    "awayScore": 45,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-01-15T00:00:00.000Z",
+                    "homeScore": 23,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 25,
+                    "homeTeam": "Brighton"
+                },
+                {
+                    "date": "2022-01-08T00:00:00.000Z",
+                    "homeScore": 13,
+                    "awayTeam": "Tring",
+                    "awayScore": 17,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-12-11T00:00:00.000Z",
+                    "homeScore": 41,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 17,
+                    "homeTeam": "Havant"
+                },
+                {
+                    "date": "2021-12-04T00:00:00.000Z",
+                    "homeScore": 15,
+                    "awayTeam": "Wimbledon",
+                    "awayScore": 19,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-11-27T00:00:00.000Z",
+                    "homeScore": 6,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 36,
+                    "homeTeam": "CS Stags 1863"
+                },
+                {
+                    "date": "2021-11-13T00:00:00.000Z",
+                    "homeScore": 10,
+                    "awayTeam": "North Walsham",
+                    "awayScore": 26,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-11-06T00:00:00.000Z",
+                    "homeScore": 32,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 27,
+                    "homeTeam": "Westcombe Park"
+                },
+                {
+                    "date": "2021-10-30T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Sevenoaks",
+                    "awayScore": 45,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-10-23T00:00:00.000Z",
+                    "homeScore": 17,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 8,
+                    "homeTeam": "Hertford"
+                },
+                {
+                    "date": "2021-10-16T00:00:00.000Z",
+                    "homeScore": 20,
+                    "awayTeam": "Sutton & Epsom",
+                    "awayScore": 21,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-10-02T00:00:00.000Z",
+                    "homeScore": 16,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 10,
+                    "homeTeam": "Maidenhead"
+                },
+                {
+                    "date": "2021-09-25T00:00:00.000Z",
+                    "homeScore": 24,
+                    "awayTeam": "Brighton",
+                    "awayScore": 36,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-09-18T00:00:00.000Z",
+                    "homeScore": 24,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 31,
+                    "homeTeam": "Tring"
+                },
+                {
+                    "date": "2021-09-11T00:00:00.000Z",
+                    "homeScore": 27,
+                    "awayTeam": "Sidcup",
+                    "awayScore": 36,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2021-09-04T00:00:00.000Z",
+                    "homeScore": 33,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 11,
+                    "homeTeam": "Dorking"
+                }
+            ]
+        },
+        {
+            "competitionId": 2790,
+            "groupName": "Regional 1 Plate Pool 4",
+            "competitionName": "Papa John’s Men’s Community Cup ",
+            "groupId": 51677,
+            "season": 2022,
+            "team": 23285,
+            "table": [
+                {
+                    "pointsAgainst": 51,
+                    "lost": 0,
+                    "won": 3,
+                    "pointsFor": 65,
+                    "leaguePoints": 15,
+                    "team": "Maidenhead",
+                    "position": 1,
+                    "tryBonus": 2,
+                    "played": 3,
+                    "losingBonus": 0,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 37,
+                    "lost": 1,
+                    "won": 2,
+                    "pointsFor": 36,
+                    "leaguePoints": 12,
+                    "team": "Bedford Athletic",
+                    "position": 2,
+                    "tryBonus": 1,
+                    "played": 3,
+                    "losingBonus": 1,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 19,
+                    "lost": 2,
+                    "won": 1,
+                    "pointsFor": 28,
+                    "leaguePoints": 3,
+                    "team": "Tunbridge Wells",
+                    "position": 3,
+                    "tryBonus": 1,
+                    "played": 3,
+                    "losingBonus": 0,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 56,
+                    "lost": 3,
+                    "won": 0,
+                    "pointsFor": 34,
+                    "leaguePoints": -2,
+                    "team": "London Welsh ",
+                    "position": 4,
+                    "tryBonus": 0,
+                    "played": 3,
+                    "losingBonus": 0,
+                    "drew": 0
+                }
+            ],
+            "fixtures": [
+                {
+                    "date": "2023-04-22T00:00:00.000Z",
+                    "awayTeam": "Tunbridge Wells",
+                    "homeTeam": "Maidenhead"
+                },
+                {
+                    "date": "2023-04-15T00:00:00.000Z",
+                    "awayTeam": "Tunbridge Wells",
+                    "homeTeam": "Bedford Athletic"
+                },
+                {
+                    "date": "2023-04-01T00:00:00.000Z",
+                    "homeScore": 28,
+                    "awayTeam": "London Welsh ",
+                    "awayScore": 19,
+                    "homeTeam": "Tunbridge Wells"
+                }
+            ]
+        },
+        {
+            "competitionId": 90,
+            "groupName": "Regional 1 South East",
+            "competitionName": "London & SE Division",
+            "groupId": 44933,
+            "season": 2022,
+            "team": 23285,
+            "table": [
+                {
+                    "pointsAgainst": 385,
+                    "lost": 4,
+                    "won": 18,
+                    "pointsFor": 814,
+                    "leaguePoints": 90,
+                    "team": "Westcombe Park",
+                    "position": 1,
+                    "tryBonus": 16,
+                    "played": 22,
+                    "losingBonus": 2,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 455,
+                    "lost": 6,
+                    "won": 15,
+                    "pointsFor": 493,
+                    "leaguePoints": 72,
+                    "team": "Shelford",
+                    "position": 2,
+                    "tryBonus": 7,
+                    "played": 22,
+                    "losingBonus": 3,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 508,
+                    "lost": 9,
+                    "won": 12,
+                    "pointsFor": 576,
+                    "leaguePoints": 69,
+                    "team": "Colchester",
+                    "position": 3,
+                    "tryBonus": 14,
+                    "played": 22,
+                    "losingBonus": 5,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 478,
+                    "lost": 8,
+                    "won": 12,
+                    "pointsFor": 558,
+                    "leaguePoints": 65,
+                    "team": "Harpenden",
+                    "position": 4,
+                    "tryBonus": 9,
+                    "played": 22,
+                    "losingBonus": 4,
+                    "drew": 2
+                },
+                {
+                    "pointsAgainst": 528,
+                    "lost": 9,
+                    "won": 12,
+                    "pointsFor": 532,
+                    "leaguePoints": 62,
+                    "team": "Tring",
+                    "position": 5,
+                    "tryBonus": 7,
+                    "played": 22,
+                    "losingBonus": 5,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 487,
+                    "lost": 10,
+                    "won": 12,
+                    "pointsFor": 503,
+                    "leaguePoints": 60,
+                    "team": "Tunbridge Wells",
+                    "position": 6,
+                    "tryBonus": 7,
+                    "played": 22,
+                    "losingBonus": 5,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 621,
+                    "lost": 12,
+                    "won": 9,
+                    "pointsFor": 627,
+                    "leaguePoints": 52,
+                    "team": "Bedford Athletic",
+                    "position": 7,
+                    "tryBonus": 8,
+                    "played": 22,
+                    "losingBonus": 6,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 590,
+                    "lost": 13,
+                    "won": 9,
+                    "pointsFor": 546,
+                    "leaguePoints": 50,
+                    "team": "Sudbury",
+                    "position": 8,
+                    "tryBonus": 10,
+                    "played": 22,
+                    "losingBonus": 4,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 513,
+                    "lost": 13,
+                    "won": 9,
+                    "pointsFor": 446,
+                    "leaguePoints": 48,
+                    "team": "Hertford",
+                    "position": 9,
+                    "tryBonus": 7,
+                    "played": 22,
+                    "losingBonus": 5,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 575,
+                    "lost": 13,
+                    "won": 9,
+                    "pointsFor": 468,
+                    "leaguePoints": 46,
+                    "team": "CS Stags 1863",
+                    "position": 10,
+                    "tryBonus": 8,
+                    "played": 22,
+                    "losingBonus": 7,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 644,
+                    "lost": 15,
+                    "won": 7,
+                    "pointsFor": 413,
+                    "leaguePoints": 35,
+                    "team": "Sidcup",
+                    "position": 11,
+                    "tryBonus": 2,
+                    "played": 22,
+                    "losingBonus": 5,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 539,
+                    "lost": 17,
+                    "won": 5,
+                    "pointsFor": 347,
+                    "leaguePoints": 26,
+                    "team": "Medway",
+                    "position": 12,
+                    "tryBonus": 0,
+                    "played": 22,
+                    "losingBonus": 6,
+                    "drew": 0
+                }
+            ],
+            "fixtures": [
+                {
+                    "date": "2023-03-18T00:00:00.000Z",
+                    "homeScore": 22,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 17,
+                    "homeTeam": "Medway"
+                },
+                {
+                    "date": "2023-03-11T00:00:00.000Z",
+                    "homeScore": 27,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 47,
+                    "homeTeam": "Shelford"
+                },
+                {
+                    "date": "2023-03-04T00:00:00.000Z",
+                    "homeScore": 48,
+                    "awayTeam": "Bedford Athletic",
+                    "awayScore": 24,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-02-25T00:00:00.000Z",
+                    "homeScore": 37,
+                    "awayTeam": "Westcombe Park",
+                    "awayScore": 19,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-02-18T00:00:00.000Z",
+                    "homeScore": 55,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 7,
+                    "homeTeam": "Harpenden"
+                },
+                {
+                    "date": "2023-02-11T00:00:00.000Z",
+                    "homeScore": 38,
+                    "awayTeam": "Tring",
+                    "awayScore": 34,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-02-04T00:00:00.000Z",
+                    "homeScore": 15,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 12,
+                    "homeTeam": "CS Stags 1863"
+                },
+                {
+                    "date": "2023-01-28T00:00:00.000Z",
+                    "homeScore": 34,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Colchester"
+                },
+                {
+                    "date": "2023-01-14T00:00:00.000Z",
+                    "homeScore": 17,
+                    "awayTeam": "Sudbury",
+                    "awayScore": 21,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-01-07T00:00:00.000Z",
+                    "homeScore": 18,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 9,
+                    "homeTeam": "Sidcup"
+                },
+                {
+                    "date": "2022-12-03T00:00:00.000Z",
+                    "homeScore": 14,
+                    "awayTeam": "Hertford",
+                    "awayScore": 3,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-11-26T00:00:00.000Z",
+                    "homeScore": 10,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 12,
+                    "homeTeam": "Bedford Athletic"
+                },
+                {
+                    "date": "2022-11-12T00:00:00.000Z",
+                    "homeScore": 24,
+                    "awayTeam": "Harpenden",
+                    "awayScore": 12,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-11-05T00:00:00.000Z",
+                    "homeScore": 28,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 27,
+                    "homeTeam": "Tring"
+                },
+                {
+                    "date": "2022-10-29T00:00:00.000Z",
+                    "homeScore": 28,
+                    "awayTeam": "Colchester",
+                    "awayScore": 24,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-10-22T00:00:00.000Z",
+                    "homeScore": 30,
+                    "awayTeam": "Medway",
+                    "awayScore": 15,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-10-15T00:00:00.000Z",
+                    "homeScore": 10,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 30,
+                    "homeTeam": "Sudbury"
+                },
+                {
+                    "date": "2022-10-01T00:00:00.000Z",
+                    "homeScore": 55,
+                    "awayTeam": "Sidcup",
+                    "awayScore": 17,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-09-24T00:00:00.000Z",
+                    "homeScore": 31,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 15,
+                    "homeTeam": "Westcombe Park"
+                },
+                {
+                    "date": "2022-09-17T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "CS Stags 1863",
+                    "awayScore": 44,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2022-09-10T00:00:00.000Z",
+                    "homeScore": 10,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 28,
+                    "homeTeam": "Hertford"
+                },
+                {
+                    "date": "2022-09-03T00:00:00.000Z",
+                    "homeScore": 8,
+                    "awayTeam": "Shelford",
+                    "awayScore": 14,
+                    "homeTeam": "Tunbridge Wells"
+                }
+            ]
+        },
+        {
+            "competitionId": 90,
+            "groupName": "Regional 1 South Central",
+            "competitionName": "London & SE Division",
+            "groupId": 52366,
+            "season": 2023,
+            "team": 23285,
+            "table": [
+                {
+                    "pointsAgainst": 165,
+                    "lost": 1,
+                    "won": 6,
+                    "pointsFor": 251,
+                    "leaguePoints": 30,
+                    "team": "Havant",
+                    "position": 1,
+                    "tryBonus": 5,
+                    "played": 7,
+                    "losingBonus": 1,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 136,
+                    "lost": 1,
+                    "won": 6,
+                    "pointsFor": 246,
+                    "leaguePoints": 29,
+                    "team": "Camberley",
+                    "position": 2,
+                    "tryBonus": 5,
+                    "played": 7,
+                    "losingBonus": 0,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 192,
+                    "lost": 2,
+                    "won": 5,
+                    "pointsFor": 238,
+                    "leaguePoints": 26,
+                    "team": "Tunbridge Wells",
+                    "position": 3,
+                    "tryBonus": 6,
+                    "played": 7,
+                    "losingBonus": 0,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 190,
+                    "lost": 2,
+                    "won": 5,
+                    "pointsFor": 211,
+                    "leaguePoints": 26,
+                    "team": "London Welsh ",
+                    "position": 4,
+                    "tryBonus": 5,
+                    "played": 7,
+                    "losingBonus": 1,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 156,
+                    "lost": 3,
+                    "won": 4,
+                    "pointsFor": 226,
+                    "leaguePoints": 23,
+                    "team": "Bracknell",
+                    "position": 5,
+                    "tryBonus": 5,
+                    "played": 7,
+                    "losingBonus": 2,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 167,
+                    "lost": 3,
+                    "won": 4,
+                    "pointsFor": 215,
+                    "leaguePoints": 23,
+                    "team": "CS Stags 1863",
+                    "position": 6,
+                    "tryBonus": 5,
+                    "played": 7,
+                    "losingBonus": 2,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 235,
+                    "lost": 4,
+                    "won": 2,
+                    "pointsFor": 231,
+                    "leaguePoints": 18,
+                    "team": "Brighton",
+                    "position": 7,
+                    "tryBonus": 6,
+                    "played": 7,
+                    "losingBonus": 2,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 213,
+                    "lost": 4,
+                    "won": 3,
+                    "pointsFor": 160,
+                    "leaguePoints": 15,
+                    "team": "Marlborough",
+                    "position": 8,
+                    "tryBonus": 3,
+                    "played": 7,
+                    "losingBonus": 0,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 289,
+                    "lost": 4,
+                    "won": 2,
+                    "pointsFor": 193,
+                    "leaguePoints": 13,
+                    "team": "Bournemouth",
+                    "position": 9,
+                    "tryBonus": 2,
+                    "played": 7,
+                    "losingBonus": 1,
+                    "drew": 1
+                },
+                {
+                    "pointsAgainst": 246,
+                    "lost": 5,
+                    "won": 2,
+                    "pointsFor": 159,
+                    "leaguePoints": 13,
+                    "team": "Hammersmith & Fulham",
+                    "position": 10,
+                    "tryBonus": 4,
+                    "played": 7,
+                    "losingBonus": 1,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 248,
+                    "lost": 6,
+                    "won": 1,
+                    "pointsFor": 170,
+                    "leaguePoints": 11,
+                    "team": "Horsham",
+                    "position": 11,
+                    "tryBonus": 4,
+                    "played": 7,
+                    "losingBonus": 3,
+                    "drew": 0
+                },
+                {
+                    "pointsAgainst": 263,
+                    "lost": 6,
+                    "won": 1,
+                    "pointsFor": 200,
+                    "leaguePoints": 10,
+                    "team": "Maidenhead",
+                    "position": 12,
+                    "tryBonus": 4,
+                    "played": 7,
+                    "losingBonus": 2,
+                    "drew": 0
+                }
+            ],
+            "fixtures": [
+                {
+                    "date": "2023-11-04T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "London Welsh ",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-11-11T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "CS Stags 1863"
+                },
+                {
+                    "date": "2023-11-18T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Maidenhead",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-12-02T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Bracknell"
+                },
+                {
+                    "date": "2023-12-09T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Havant",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-12-16T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Horsham"
+                },
+                {
+                    "date": "2024-01-06T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Brighton"
+                },
+                {
+                    "date": "2024-01-13T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Bournemouth",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2024-01-27T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Camberley"
+                },
+                {
+                    "date": "2024-02-03T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Hammersmith & Fulham",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2024-02-17T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "London Welsh "
+                },
+                {
+                    "date": "2024-03-02T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "CS Stags 1863",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2024-03-16T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Maidenhead"
+                },
+                {
+                    "date": "2024-03-23T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Bracknell",
+                    "awayScore": 0,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2024-04-06T00:00:00.000Z",
+                    "homeScore": 0,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 0,
+                    "homeTeam": "Marlborough"
+                },
+                {
+                    "date": "2023-10-21T00:00:00.000Z",
+                    "homeScore": 31,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 34,
+                    "homeTeam": "Hammersmith & Fulham"
+                },
+                {
+                    "date": "2023-10-14T00:00:00.000Z",
+                    "homeScore": 33,
+                    "awayTeam": "Camberley",
+                    "awayScore": 41,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-09-30T00:00:00.000Z",
+                    "homeScore": 27,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 43,
+                    "homeTeam": "Bournemouth"
+                },
+                {
+                    "date": "2023-09-23T00:00:00.000Z",
+                    "homeScore": 26,
+                    "awayTeam": "Brighton",
+                    "awayScore": 24,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-09-16T00:00:00.000Z",
+                    "homeScore": 45,
+                    "awayTeam": "Horsham",
+                    "awayScore": 14,
+                    "homeTeam": "Tunbridge Wells"
+                },
+                {
+                    "date": "2023-09-09T00:00:00.000Z",
+                    "homeScore": 34,
+                    "awayTeam": "Tunbridge Wells",
+                    "awayScore": 21,
+                    "homeTeam": "Havant"
+                },
+                {
+                    "date": "2023-09-02T15:00:00.000Z",
+                    "homeScore": 36,
+                    "awayTeam": "Marlborough",
+                    "awayScore": 21,
+                    "homeTeam": "Tunbridge Wells"
+                }
+            ]
+        }
+    ],
+    "team": "Tunbridge Wells"
+}

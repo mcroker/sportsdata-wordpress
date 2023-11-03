@@ -14,30 +14,10 @@ if (!function_exists('sd_league_table_render_callback')) :
 	function sd_league_table_render_callback($attributes, $content, $block_instance)
 	{
 		ob_start();
-		$uid = esc_attr(uniqid());
-		if (isset($attributes['teamkey'])) {
-			$team = sd_get_team($attributes['teamkey'], array(
-				'cachemode' => CacheMode::fetchexpired
-			));
-		} else {
-			$team = null;
-		}
+		$team = SDTeam::createFromCache($attributes['teamkey']);
 ?>
 		<div <?php echo wp_kses_data(get_block_wrapper_attributes()); ?>>
-			<script type="text/javascript">
-				(function($) {
-					sdRegisterBlock({
-						uid: "<?php echo $uid ?>",
-						url: "<?php echo get_site_url(null, '/wp-json/sportsdata/v1') ?>",
-						function: "league_table",
-						data: {},
-						hash: <?php echo (isset($team)) ? "'$team->hash'" : 'null'; ?>,
-						teamkey: "<?php echo $attributes['teamkey'] ?>",
-						force: <?php echo get_query_var('force_refresh') === 'true' ? "true" : "false" ?>,
-						isStale: <?php echo ($team === null || $team->isStale === true || get_query_var('force_refresh') === 'true') ? "true" : "false" ?>
-					});
-				})(jQuery);
-			</script>
+			<?php $uid = sd_register_block($team, 'league_table', $attributes); ?>
 			<div id="sd_content_<? echo $uid; ?>">
 				<?php echo sd_league_table_render_content_inner($uid, $team); ?>
 			</div>

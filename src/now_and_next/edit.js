@@ -58,7 +58,7 @@ export default function Edit({ attributes: { title, teamkey, maxrows, maxfuture 
 					label="Maximum Rows"
 					value={jQuery.isNumeric(maxrows) ? maxrows : ''}
 					onChange={(value) =>
-						setAttributes({ maxfuture: parseInt(value) })
+						setAttributes({ maxrows: parseInt(value) })
 					}
 				/>
 				< TextControl
