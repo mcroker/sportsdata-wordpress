@@ -32,18 +32,12 @@ if (!function_exists('sd_api_team_logo_get')) :
             $cache = get_transient($key);
         }
 
-        if (isset($cache)) {
+        if (isset($cache) && $cache !== false) {
             header('Content-Type: image/png');
             echo base64_decode($cache);
             exit;
         } else {
             $image_resource = imagecreatefrompng($urlBase . $team . ".png?alt=media");;
-            /* 
-            if ($image_resource === false) {
-                $path = preg_replace('/((_i)|(_ii)|(_iii)|(_2nd)|(_3rd)|(_ladies)|(_ladies_ii)|(_women)|(_women_ii))$/', '', $team);
-                $image_resource = imagecreatefrompng($urlBase . $path . ".png?alt=media");
-            }
-            */
             if ($image_resource !== false) {
                 $temp = tempnam(sys_get_temp_dir(), 'image_cache_');
                 imagepng($image_resource, $temp);

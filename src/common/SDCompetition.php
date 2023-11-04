@@ -37,7 +37,7 @@ if (!class_exists('SDCompetition')) :
             $this->team = isset($data->team) ? $data->team : null;
 
             $this->id = $this->competition . '-' . $this->season . '-' . $this->team;
-            $this->name = isset($data->name) ? $data->name : null;
+            $this->name = isset($data->competitionName) ? $data->competitionName : null;
 
             $this->displayname = $this->season . '/' . strval(intval($this->season) - 1999) . ' ' . $this->name;
         }
